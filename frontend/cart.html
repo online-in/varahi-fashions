@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Cart — Varahi Fashions</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,500;1,600&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body class="has-bottom-nav">
+
+<header class="site-header">
+  <div class="container nav">
+    <a href="index.html" class="brand">
+      <div class="brand-mark">VF</div>
+      <div>
+        <div class="brand-name">VARAHI FASHIONS</div>
+        <div class="brand-tagline">Timeless Elegance • Traditional You</div>
+      </div>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="shop.html">Shop</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <div class="nav-drawer-contact">
+        <a class="js-phone-link" href="#"><span class="icon">📞</span> <span class="js-phone-text">+91 9346619967</span></a>
+        <a class="js-whatsapp-link" data-message="Hello Varahi Fashions, I would like to know more about your sarees." href="#"><span class="icon">💬</span> WhatsApp: <span class="js-whatsapp-text">+91 8099809089</span></a>
+        <a href="#"><span class="icon">📍</span> Indra Nagar Colony, Srikakulam</a>
+        <a href="https://instagram.com/varahi_fashions_traditional" target="_blank" rel="noopener"><span class="icon">📷</span> @varahi_fashions_traditional</a>
+      </div>
+    </nav>
+    <div class="nav-actions">
+      <div class="nav-contact-icons">
+        <a class="js-phone-link" href="#" aria-label="Call us">📞</a>
+        <a class="js-whatsapp-link" data-message="Hello Varahi Fashions, I would like to know more about your sarees." href="#" aria-label="WhatsApp us">💬</a>
+      </div>
+      <a href="cart.html" class="icon-link active" aria-label="Cart">🛍️<span class="badge js-cart-count">0</span></a>
+      <button class="nav-toggle" aria-label="Menu">☰</button>
+    </div>
+  </div>
+</header>
+<div class="nav-drawer-backdrop"></div>
+
+<section class="page-banner">
+  <div class="container">
+    <h1>Your Cart</h1>
+    <p>Review your sarees and check out via WhatsApp or Cash on Delivery.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container cart-layout">
+    <div>
+      <div id="cart-items" class="card-panel"></div>
+    </div>
+
+    <div class="card-panel cart-summary-panel">
+      <h3 style="margin-bottom:16px">Order Summary</h3>
+      <div class="summary-row"><span>Subtotal</span><span id="summary-subtotal">₹0</span></div>
+      <div class="summary-row"><span>Discount</span><span id="summary-discount">− ₹0</span></div>
+      <div class="summary-row total"><span>Total</span><span id="summary-total">₹0</span></div>
+
+      <div class="form-field mt-24">
+        <label for="coupon-input">Have a coupon?</label>
+        <div style="display:flex;gap:8px">
+          <input type="text" id="coupon-input" placeholder="e.g. VARAHI10">
+          <button class="btn btn-outline btn-sm" id="apply-coupon-btn">Apply</button>
+        </div>
+        <p id="coupon-message" style="font-size:0.78rem;margin-top:6px"></p>
+      </div>
+
+      <hr style="border:none;border-top:1px dashed var(--line-strong);margin:20px 0">
+
+      <form id="checkout-form">
+        <div class="form-field">
+          <label for="c-name">Full Name</label>
+          <input type="text" id="c-name" required>
+        </div>
+        <div class="form-field">
+          <label for="c-phone">Phone / WhatsApp Number</label>
+          <input type="tel" id="c-phone" required>
+        </div>
+        <div class="form-field">
+          <label for="c-address">House No. / Street / Landmark</label>
+          <textarea id="c-address" rows="2" required></textarea>
+        </div>
+        <div class="form-row">
+          <div class="form-field">
+            <label for="c-city">City / Town</label>
+            <input type="text" id="c-city" required>
+          </div>
+          <div class="form-field">
+            <label for="c-state">State</label>
+            <input type="text" id="c-state" required>
+          </div>
+        </div>
+        <div class="form-field">
+          <label for="c-pincode">Pincode</label>
+          <input type="text" id="c-pincode" inputmode="numeric" pattern="[0-9]{6}" maxlength="6" required>
+        </div>
+        <div class="form-field">
+          <label for="c-notes">Order Notes (optional)</label>
+          <textarea id="c-notes" rows="2" placeholder="Preferred color, blouse piece needed, etc."></textarea>
+        </div>
+        <div id="checkout-alert"></div>
+        <button type="submit" class="btn btn-primary btn-block">Place Order (Cash on Delivery)</button>
+        <button type="button" id="whatsapp-checkout-btn" class="btn btn-whatsapp btn-block mt-24">💬 Checkout via WhatsApp</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container footer-bottom">© <span class="js-year"></span> Varahi Fashions. All rights reserved.</div>
+</footer>
+
+<a class="whatsapp-float js-whatsapp-link" data-message="Hello Varahi Fashions, I would like to know more about your sarees." href="#" aria-label="Chat on WhatsApp">💬</a>
+
+<nav class="bottom-nav">
+  <a href="index.html"><span class="bn-icon">🏠</span>Home</a>
+  <a href="shop.html"><span class="bn-icon">🧵</span>Shop</a>
+  <a href="cart.html" class="active"><span class="bn-icon">🛍️</span>Cart<span class="badge js-cart-count">0</span></a>
+  <a href="#" class="bn-whatsapp js-whatsapp-link" data-message="Hello Varahi Fashions, I would like to know more about your sarees."><span class="bn-icon">💬</span>WhatsApp</a>
+  <a href="contact.html"><span class="bn-icon">👤</span>Contact</a>
+</nav>
+
+<script src="js/cart-store.js"></script>
+<script src="js/main.js"></script>
+<script src="js/cart.js"></script>
+</body>
+</html>

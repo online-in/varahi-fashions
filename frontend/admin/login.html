@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Login — Varahi Fashions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,500;1,600&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/admin.css">
+</head>
+<body class="admin-body">
+
+<div class="admin-login-wrap">
+  <div class="admin-login-card">
+    <div class="brand-mark">VF</div>
+    <h1>Varahi Fashions Admin</h1>
+    <p>Sign in to manage products, orders and coupons.</p>
+    <div id="login-alert"></div>
+    <form id="login-form">
+      <div class="form-field">
+        <label for="username">Username</label>
+        <input type="text" id="username" required autocomplete="username">
+      </div>
+      <div class="form-field">
+        <label for="password">Password</label>
+        <input type="password" id="password" required autocomplete="current-password">
+      </div>
+      <button type="submit" class="btn btn-primary btn-block">Log In</button>
+    </form>
+    <p style="margin-top:18px"><a href="../index.html" style="font-size:0.82rem;color:var(--ink-soft)">← Back to store</a></p>
+  </div>
+</div>
+
+<script>
+const API_BASE = '/api';
+document.getElementById('login-form').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const alertBox = document.getElementById('login-alert');
+  const username = document.getElementById('username').value.trim();
+  const password = document.getElementById('password').value.trim();
+
+  try {
+    const res = await fetch(`${API_BASE}/auth/login`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ username, password }),
+    });
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.error || 'Login failed');
+    localStorage.setItem('varahi_admin_token', data.token);
+    window.location.href = 'dashboard.html';
+  } catch (err) {
+    alertBox.innerHTML = `<div class="alert alert-error">${err.message}</div>`;
+  }
+});
+</script>
+</body>
+</html>

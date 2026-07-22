@@ -1,0 +1,113 @@
+body.admin-body {
+  background: var(--bg);
+  font-family: var(--font-body);
+}
+
+/* ---- Login page ---- */
+.admin-login-wrap {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(120deg, #efe9df 0%, #e3dccd 100%);
+  padding: 20px;
+}
+.admin-login-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: 40px 36px;
+  width: 100%;
+  max-width: 380px;
+  box-shadow: var(--shadow-strong);
+  text-align: center;
+}
+.admin-login-card .brand-mark { margin: 0 auto 14px; }
+.admin-login-card h1 { font-size: 1.3rem; margin-bottom: 4px; }
+.admin-login-card p { color: var(--ink-soft); font-size: 0.85rem; margin-bottom: 24px; }
+
+/* ---- Dashboard shell ---- */
+.admin-shell { display: flex; min-height: 100vh; }
+.admin-sidebar {
+  width: 230px;
+  background: var(--ink);
+  color: #f3efe9;
+  padding: 24px 18px;
+  flex-shrink: 0;
+}
+.admin-sidebar .brand-mark { margin-bottom: 10px; background: var(--rust); }
+.admin-sidebar h2 { color: #fff; font-size: 1.05rem; margin-bottom: 2px; }
+.admin-sidebar .brand-tagline { color: rgba(243,239,233,0.55); }
+.admin-nav { margin-top: 30px; display: flex; flex-direction: column; gap: 4px; }
+.admin-nav button {
+  text-align: left;
+  background: none;
+  border: none;
+  color: rgba(243,239,233,0.82);
+  padding: 11px 14px;
+  border-radius: var(--radius-sm);
+  font-size: 0.88rem;
+  font-weight: 500;
+}
+.admin-nav button.active, .admin-nav button:hover { background: rgba(192,80,60,0.25); color: #fff; }
+.admin-logout { margin-top: 30px; }
+
+.admin-main { flex: 1; padding: 30px 36px; overflow-x: auto; }
+.admin-topbar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 26px; }
+.admin-topbar h1 { font-size: 1.4rem; }
+
+.stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 18px; margin-bottom: 30px; }
+.stat-card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-md); padding: 20px; }
+.stat-card .eyebrow { display: block; margin-bottom: 8px; }
+.stat-card strong { font-family: var(--font-display); font-size: 1.6rem; color: var(--ink); }
+
+.admin-table-wrap { background: var(--surface); border-radius: var(--radius-md); border: 1px solid var(--line); overflow: hidden; }
+table.admin-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+table.admin-table th {
+  text-align: left;
+  background: var(--bg);
+  color: var(--ink);
+  padding: 12px 16px;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+}
+table.admin-table td { padding: 12px 16px; border-top: 1px solid var(--line); vertical-align: middle; }
+table.admin-table tr:hover td { background: rgba(192,80,60,0.03); }
+
+.status-pill { padding: 3px 10px; border-radius: 999px; font-size: 0.72rem; font-weight: 600; text-transform: capitalize; }
+.status-pending { background: var(--gold-tint); color: var(--gold); }
+.status-confirmed { background: rgba(47,122,79,0.14); color: var(--success); }
+.status-shipped { background: rgba(30,90,160,0.12); color: #1e5aa0; }
+.status-delivered { background: rgba(47,122,79,0.2); color: var(--success); }
+.status-cancelled { background: rgba(164,48,42,0.1); color: var(--danger); }
+
+.action-link { font-size: 0.78rem; font-weight: 600; color: var(--ink); margin-right: 10px; }
+.action-link.danger { color: var(--danger); }
+
+.modal-backdrop {
+  position: fixed; inset: 0;
+  background: rgba(35,31,28,0.55);
+  display: none;
+  align-items: center; justify-content: center;
+  z-index: 500;
+  padding: 20px;
+}
+.modal-backdrop.open { display: flex; }
+.modal-box {
+  background: var(--surface);
+  border-radius: var(--radius-md);
+  padding: 30px;
+  max-width: 480px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+.modal-box h3 { margin-bottom: 20px; }
+
+@media (max-width: 760px) {
+  .admin-shell { flex-direction: column; }
+  .admin-sidebar { width: 100%; }
+  .admin-main { padding: 22px; }
+}

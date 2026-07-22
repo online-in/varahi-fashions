@@ -1,0 +1,117 @@
+[
+  {
+    "id": 1,
+    "name": "Royal Kanjivaram Pattu Saree",
+    "category": "Pattu",
+    "price": 8500,
+    "mrp": 11000,
+    "description": "A rich Kanjivaram pattu saree woven with gold zari borders, perfect for weddings and festive occasions.",
+    "image": "images/product-placeholder-1.jpg",
+    "fabric": "Pure Silk",
+    "colors": [
+      "Maroon",
+      "Gold"
+    ],
+    "stock": 6,
+    "featured": true,
+    "createdAt": "2026-07-01T00:00:00.000Z"
+  },
+  {
+    "id": 2,
+    "name": "Sunset Fancy Georgette Saree",
+    "category": "Fancy",
+    "price": 2450,
+    "mrp": 3200,
+    "description": "Lightweight fancy georgette saree with delicate sequin work, ideal for parties and get-togethers.",
+    "image": "images/product-placeholder-2.jpg",
+    "fabric": "Georgette",
+    "colors": [
+      "Orange",
+      "Peach"
+    ],
+    "stock": 15,
+    "featured": true,
+    "createdAt": "2026-07-01T00:00:00.000Z"
+  },
+  {
+    "id": 3,
+    "name": "Peacock Soft Silk Saree",
+    "category": "Soft Silk",
+    "price": 3900,
+    "mrp": 5000,
+    "description": "Soft silk saree with a woven peacock motif border, offering a graceful drape for everyday elegance.",
+    "image": "images/product-placeholder-3.jpg",
+    "fabric": "Soft Silk",
+    "colors": [
+      "Teal",
+      "Gold"
+    ],
+    "stock": 10,
+    "featured": true,
+    "createdAt": "2026-07-01T00:00:00.000Z"
+  },
+  {
+    "id": 4,
+    "name": "Handloom Cotton Saree",
+    "category": "Cotton",
+    "price": 1450,
+    "mrp": 1800,
+    "description": "Breathable handloom cotton saree with contrast border, perfect for daily wear and office wear.",
+    "image": "images/product-placeholder-4.jpg",
+    "fabric": "Cotton",
+    "colors": [
+      "Cream",
+      "Red"
+    ],
+    "stock": 20,
+    "featured": false,
+    "createdAt": "2026-07-01T00:00:00.000Z"
+  },
+  {
+    "id": 5,
+    "name": "Festive Gift Collection Saree Box",
+    "category": "Gift Collections",
+    "price": 4200,
+    "mrp": 5500,
+    "description": "Beautifully boxed saree gift set, curated for weddings, festivals and special occasions.",
+    "image": "images/product-placeholder-5.jpg",
+    "fabric": "Assorted Silk",
+    "colors": [
+      "Multicolor"
+    ],
+    "stock": 8,
+    "featured": true,
+    "createdAt": "2026-07-01T00:00:00.000Z"
+  },
+  {
+    "id": 6,
+    "name": "Bridal Kanchipuram Pattu Saree",
+    "category": "Pattu",
+    "price": 15500,
+    "mrp": 19000,
+    "description": "Heavy zari-worked bridal Kanchipuram pattu saree with temple border design.",
+    "image": "images/product-placeholder-6.jpg",
+    "fabric": "Pure Silk",
+    "colors": [
+      "Red",
+      "Gold"
+    ],
+    "stock": 4,
+    "featured": false,
+    "createdAt": "2026-07-01T00:00:00.000Z"
+  },
+  {
+    "id": 7,
+    "name": "Jaig",
+    "category": "Pattu",
+    "price": 300,
+    "mrp": 299,
+    "description": "",
+    "image": "images/1784609688070-saree1.jpg",
+    "fabric": "kl",
+    "colors": [],
+    "stock": 10,
+    "featured": true,
+    "createdAt": "2026-07-21T04:54:53.054Z"
+  }
+]

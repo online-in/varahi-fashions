@@ -1,0 +1,65 @@
+[
+  {
+    "id": 1,
+    "customerName": "Bharath Kumar Gorle",
+    "phone": "09390854225",
+    "address": "Marna chirch opposit / Sunkarapeddiya vidhi / Bhimavaram\nKarlam / Chipurapalli / Vijayanagaram / Andhrapradesh, WEST GODAVARI, ANDHRA PRADESH - 534201",
+    "items": [
+      {
+        "productId": 2,
+        "name": "Sunset Fancy Georgette Saree",
+        "price": 2450,
+        "quantity": 1
+      }
+    ],
+    "subtotal": 2450,
+    "discount": 0,
+    "total": 2450,
+    "couponCode": null,
+    "notes": "",
+    "status": "pending",
+    "createdAt": "2026-07-21T11:13:29.357Z"
+  },
+  {
+    "id": 2,
+    "customerName": "Bharath Kumar Gorle",
+    "phone": "09390854225",
+    "address": "Marna chirch opposit / Sunkarapeddiya vidhi / Bhimavaram\nKarlam / Chipurapalli / Vijayanagaram / Andhrapradesh, Bhimavaram, Andhra Pradesh - 534210",
+    "items": [
+      {
+        "productId": 2,
+        "name": "Sunset Fancy Georgette Saree",
+        "price": 2450,
+        "quantity": 1
+      }
+    ],
+    "subtotal": 2450,
+    "discount": 0,
+    "total": 2450,
+    "couponCode": null,
+    "notes": "",
+    "status": "pending",
+    "createdAt": "2026-07-22T04:56:48.187Z"
+  },
+  {
+    "id": 3,
+    "customerName": "Bharath Kumar Gorle",
+    "phone": "09390854225",
+    "address": "Marna chirch opposit / Sunkarapeddiya vidhi / Bhimavaram\nKarlam / Chipurapalli / Vijayanagaram / Andhrapradesh, Bhimavaram, Andhra Pradesh - 534210",
+    "items": [
+      {
+        "productId": 2,
+        "name": "Sunset Fancy Georgette Saree",
+        "price": 2450,
+        "quantity": 1
+      }
+    ],
+    "subtotal": 2450,
+    "discount": 0,
+    "total": 2450,
+    "couponCode": null,
+    "notes": "(Checkout via WhatsApp)",
+    "status": "pending",
+    "createdAt": "2026-07-22T04:57:15.161Z"
+  }
+]

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Dashboard — Varahi Fashions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,500;1,600&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/admin.css">
+</head>
+<body class="admin-body">
+
+<div class="admin-shell">
+  <aside class="admin-sidebar">
+    <div class="brand-mark">VF</div>
+    <h2>Varahi Fashions</h2>
+    <div class="brand-tagline">Admin Dashboard</div>
+    <nav class="admin-nav">
+      <button class="js-nav active" data-panel="overview">📊 Overview</button>
+      <button class="js-nav" data-panel="products">👗 Products</button>
+      <button class="js-nav" data-panel="orders">🧾 Orders</button>
+      <button class="js-nav" data-panel="coupons">🏷️ Coupons</button>
+      <button class="js-nav" data-panel="messages">✉️ Messages</button>
+    </nav>
+    <button class="btn btn-outline btn-block admin-logout" id="logout-btn" style="border-color:var(--gold-500);color:var(--gold-300)">Log Out</button>
+  </aside>
+
+  <main class="admin-main">
+    <!-- Overview -->
+    <section id="panel-overview" class="admin-panel">
+      <div class="admin-topbar"><h1>Overview</h1></div>
+      <div class="stat-grid">
+        <div class="stat-card"><span class="eyebrow">Total Products</span><strong id="stat-products">—</strong></div>
+        <div class="stat-card"><span class="eyebrow">Total Orders</span><strong id="stat-orders">—</strong></div>
+        <div class="stat-card"><span class="eyebrow">Pending Orders</span><strong id="stat-pending">—</strong></div>
+        <div class="stat-card"><span class="eyebrow">Revenue (confirmed+)</span><strong id="stat-revenue">—</strong></div>
+      </div>
+      <div class="admin-table-wrap">
+        <table class="admin-table">
+          <thead><tr><th>Order</th><th>Customer</th><th>Total</th><th>Status</th><th>Date</th></tr></thead>
+          <tbody id="overview-recent-orders"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Products -->
+    <section id="panel-products" class="admin-panel" style="display:none">
+      <div class="admin-topbar">
+        <h1>Products</h1>
+        <button class="btn btn-primary btn-sm" id="add-product-btn">+ Add Product</button>
+      </div>
+      <div class="admin-table-wrap">
+        <table class="admin-table">
+          <thead><tr><th>Name</th><th>Category</th><th>Price</th><th>Stock</th><th>Featured</th><th>Actions</th></tr></thead>
+          <tbody id="products-table-body"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Orders -->
+    <section id="panel-orders" class="admin-panel" style="display:none">
+      <div class="admin-topbar"><h1>Orders</h1></div>
+      <div class="admin-table-wrap">
+        <table class="admin-table">
+          <thead><tr><th>#</th><th>Customer</th><th>Items</th><th>Total</th><th>Status</th><th>Date</th></tr></thead>
+          <tbody id="orders-table-body"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Coupons -->
+    <section id="panel-coupons" class="admin-panel" style="display:none">
+      <div class="admin-topbar">
+        <h1>Coupons</h1>
+        <button class="btn btn-primary btn-sm" id="add-coupon-btn">+ Add Coupon</button>
+      </div>
+      <div class="admin-table-wrap">
+        <table class="admin-table">
+          <thead><tr><th>Code</th><th>Type</th><th>Value</th><th>Active</th><th>Actions</th></tr></thead>
+          <tbody id="coupons-table-body"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Messages -->
+    <section id="panel-messages" class="admin-panel" style="display:none">
+      <div class="admin-topbar"><h1>Contact Messages</h1></div>
+      <div class="admin-table-wrap">
+        <table class="admin-table">
+          <thead><tr><th>Name</th><th>Phone</th><th>Message</th><th>Date</th></tr></thead>
+          <tbody id="messages-table-body"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+</div>
+
+<!-- Product modal -->
+<div class="modal-backdrop" id="product-modal">
+  <div class="modal-box">
+    <h3 id="product-modal-title">Add Product</h3>
+    <form id="product-form">
+      <input type="hidden" id="p-id">
+      <div class="form-field"><label>Name</label><input type="text" id="p-name" required></div>
+      <div class="form-row">
+        <div class="form-field">
+          <label>Category</label>
+          <select id="p-category" required>
+            <option>Pattu</option>
+            <option>Fancy</option>
+            <option>Soft Silk</option>
+            <option>Cotton</option>
+            <option>Gift Collections</option>
+          </select>
+        </div>
+        <div class="form-field"><label>Fabric</label><input type="text" id="p-fabric"></div>
+      </div>
+      <div class="form-row">
+        <div class="form-field"><label>Price (₹)</label><input type="number" id="p-price" required></div>
+        <div class="form-field"><label>MRP (₹)</label><input type="number" id="p-mrp"></div>
+      </div>
+      <div class="form-row">
+        <div class="form-field"><label>Stock</label><input type="number" id="p-stock" value="10"></div>
+        <div class="form-field"><label>Featured</label>
+          <select id="p-featured"><option value="false">No</option><option value="true">Yes</option></select>
+        </div>
+      </div>
+      <div class="form-field">
+        <label>Product Photo</label>
+        <div style="display:flex;align-items:center;gap:14px;margin-bottom:10px">
+          <img id="p-image-preview" src="" alt="" style="width:64px;height:80px;object-fit:cover;border-radius:4px;border:1px solid var(--line);display:none" onerror="this.style.display='none'">
+          <div>
+            <input type="file" id="p-image-file" accept="image/png,image/jpeg,image/webp,image/gif" style="display:none">
+            <button type="button" class="btn btn-outline btn-sm" id="p-image-upload-btn">Upload Photo</button>
+            <div id="p-image-upload-status" style="font-size:0.74rem;color:var(--ink-soft);margin-top:6px"></div>
+          </div>
+        </div>
+        <label style="font-weight:400;font-size:0.74rem">Or paste an image URL / path directly</label>
+        <input type="text" id="p-image" placeholder="images/saree1.jpg or https://...">
+      </div>
+      <div class="form-field"><label>Colors (comma separated)</label><input type="text" id="p-colors"></div>
+      <div class="form-field"><label>Description</label><textarea id="p-description" rows="3"></textarea></div>
+      <div id="product-form-alert"></div>
+      <div style="display:flex;gap:10px">
+        <button type="submit" class="btn btn-primary btn-block">Save Product</button>
+        <button type="button" class="btn btn-outline js-close-modal">Cancel</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Coupon modal -->
+<div class="modal-backdrop" id="coupon-modal">
+  <div class="modal-box">
+    <h3>Add Coupon</h3>
+    <form id="coupon-form">
+      <div class="form-field"><label>Code</label><input type="text" id="cp-code" required></div>
+      <div class="form-row">
+        <div class="form-field">
+          <label>Type</label>
+          <select id="cp-type"><option value="percent">Percent (%)</option><option value="flat">Flat (₹)</option></select>
+        </div>
+        <div class="form-field"><label>Value</label><input type="number" id="cp-value" required></div>
+      </div>
+      <div id="coupon-form-alert"></div>
+      <div style="display:flex;gap:10px">
+        <button type="submit" class="btn btn-primary btn-block">Save Coupon</button>
+        <button type="button" class="btn btn-outline js-close-modal">Cancel</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script src="../js/admin.js"></script>
+</body>
+</html>
